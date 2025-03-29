@@ -49,6 +49,16 @@ namespace PlantHarvestTweaker
                     __instance.m_GearItemCountMax = Settings.instance.AcornMax;
                     __instance.m_GearItemCountMin = Settings.instance.AcornMin;
                 }
+                if(__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_BirchSapling"))
+                {
+                    __instance.m_GearItemCountMax = Settings.instance.BirchMax;
+                    __instance.m_GearItemCountMin = Settings.instance.BirchMin;
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_MapleSapling"))
+                {
+                    __instance.m_GearItemCountMax = Settings.instance.MapleMax;
+                    __instance.m_GearItemCountMin = Settings.instance.MapleMin;
+                }
             }
         }
 
@@ -82,6 +92,14 @@ namespace PlantHarvestTweaker
                 if(__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_Acorn"))
                 {
                     __instance.m_DefaultHoldTime = Settings.instance.AcornHarvest;
+                }
+                if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_BirchSapling"))
+                {
+                    __instance.m_DefaultHoldTime = Settings.instance.BirchHarvest;
+                }
+                if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_MapleSapling"))
+                {
+                    __instance.m_DefaultHoldTime = Settings.instance.MapleHarvest;
                 }
             }
         }

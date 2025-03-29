@@ -113,10 +113,46 @@ namespace PlantHarvestTweaker
         [Slider(1, 5)]
         public int AcornMax = 1;
 
-        [Name("Lichen harvest time")]
+        [Name("Acorn harvest time")]
         [Description("Time in seconds to dig up acorns.")]
         [Slider(1, 10)]
         public int AcornHarvest = 2;
+
+        [Section("Birch Sapling Settings")]
+
+        [Name("Minimum harvest amount")]
+        [Description("Controls the minimum harvest amount of a birch sapling.")]
+        [Slider(1, 3)]
+        public int BirchMin = 1;
+
+        [Name("Maximum harvest amount")]
+        [Description("Controls the maximum harvest amount of a birch sapling.")]
+        [Slider(1, 3)]
+        public int BirchMax = 1;
+
+        [Name("Birch sapling harvest time")]
+        [Description("Time in seconds to harvest a birch sapling.")]
+        [Slider(1, 10)]
+        public int BirchHarvest = 2;
+
+        [Section("Maple Sapling Settings")]
+
+        [Name("Minimum harvest amount")]
+        [Description("Controls the minimum harvest amount of a maple sapling.")]
+        [Slider(1, 3)]
+        public int MapleMin = 1;
+
+        [Name("Maximum harvest amount")]
+        [Description("Controls the maximum harvest amount of a maple sapling.")]
+        [Slider(1, 3)]
+        public int MapleMax = 1;
+
+        [Name("Maple sapling harvest time")]
+        [Description("Time in seconds to harvest a maple sapling.")]
+        [Slider(1, 10)]
+        public int MapleHarvest = 2;
+
+
 
 
 
@@ -164,6 +200,12 @@ namespace PlantHarvestTweaker
                 Settings.instance.AcornHarvest = 2;
                 Settings.instance.AcornMax = 1;
                 Settings.instance.AcornMin = 1;
+                Settings.instance.BirchHarvest = 2;
+                Settings.instance.BirchMax = 1;
+                Settings.instance.BirchMin = 1;
+                Settings.instance.MapleHarvest = 2;
+                Settings.instance.MapleMin = 1;
+                Settings.instance.MapleMax = 1;
 
                 instance.ResetSettings = false;
                 instance.RefreshFields();
