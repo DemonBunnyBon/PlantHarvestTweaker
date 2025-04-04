@@ -14,7 +14,9 @@ Settings are separated for different plant types, including:
 - acorns, 
 - beard lichen, 
 - cat tails (both stalk and heads), 
-- burdock.
+- burdock,
+- green maple saplings,
+- birch saplings;
 
 # Installation
 
