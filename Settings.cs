@@ -152,6 +152,16 @@ namespace PlantHarvestTweaker
         [Slider(1, 10)]
         public int MapleHarvest = 2;
 
+        [Section("Misc. Settings")]
+        [Name("Tool degrade per harvest")]
+        [Description("The amount of HP a tool will lose when harvesting plants. (Eg. when harvesting a sapling with a hatchet)")]
+        [Slider(0, 10, 21)]
+        public float ToolDegrade = 0f;
+
+        [Name("Salt harvest time")]
+        [Description("Time in seconds to harvest salt from a pile.")]
+        [Slider(1,10)]
+        public int SaltHarvest = 2;
 
 
 
@@ -206,6 +216,8 @@ namespace PlantHarvestTweaker
                 Settings.instance.MapleHarvest = 2;
                 Settings.instance.MapleMin = 1;
                 Settings.instance.MapleMax = 1;
+                Settings.instance.ToolDegrade = 0;
+                Settings.instance.SaltHarvest = 2;
 
                 instance.ResetSettings = false;
                 instance.RefreshFields();

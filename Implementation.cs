@@ -13,17 +13,7 @@ namespace PlantHarvestTweaker
 			Settings.instance.AddToModSettings("Plant Harvest Tweaker");
         }
 
-		public override void OnSceneWasLoaded(int buildIndex, string sceneName)
-		{
-       
-
-
-        }
-
-        public override void OnUpdate()
-		{
-
-		}
+		
 
     }
 }

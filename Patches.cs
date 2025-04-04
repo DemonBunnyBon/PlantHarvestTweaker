@@ -11,6 +11,21 @@ namespace PlantHarvestTweaker
 {
     internal static class Patches
     {
+
+        [HarmonyPatch(typeof(Harvestable), "Harvest")]
+        public class HarvestToolPatch
+        {
+            public static void Postfix(ref Harvestable __instance)
+            {
+                GearItem tool = __instance.GetRequiredTool();
+                if(tool != null)
+                {
+                    tool.Degrade(Settings.instance.ToolDegrade);
+                }
+                
+            }
+        }
+
         [HarmonyPatch(typeof(Harvestable), "Awake")]
 
         public class HarvestablePatch
@@ -100,6 +115,10 @@ namespace PlantHarvestTweaker
                 if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_MapleSapling"))
                 {
                     __instance.m_DefaultHoldTime = Settings.instance.MapleHarvest;
+                }
+                if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_Salt"))
+                {
+                    __instance.m_DefaultHoldTime = Settings.instance.SaltHarvest;
                 }
             }
         }
