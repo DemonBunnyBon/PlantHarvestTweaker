@@ -18,7 +18,8 @@ Settings are separated for different plant types, including:
 - cat tails (both stalk and heads), 
 - burdock,
 - green maple saplings,
-- birch saplings;
+- birch saplings,
+- salt (only harvest time);
 
 # Installation
 
