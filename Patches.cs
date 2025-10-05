@@ -7,6 +7,7 @@ using Il2CppTLD.Gear;
 using Il2Cpp;
 using Il2CppTLD.IntBackedUnit;
 
+
 namespace PlantHarvestTweaker
 {
     internal static class Patches
@@ -23,6 +24,43 @@ namespace PlantHarvestTweaker
                     tool.Degrade(Settings.instance.ToolDegrade);
                 }
                 
+            }
+        }
+
+        [HarmonyPatch(typeof(Harvestable), "Harvest")]
+        public class ZeroItemsPatch
+        {
+            public static void Prefix(ref Harvestable __instance)
+            {
+                if(Settings.instance.CanFail == true)
+                {
+                    float failChance = (Settings.instance.FailChance + (0.75f * __instance.m_GearItemCountMax) + (0.25f * __instance.m_GearItemCountMin));
+                    if(Utils.RollChance(failChance))
+                    {
+                        __instance.m_Harvested = true;
+                        MeshRenderer primaryMesh = __instance.gameObject.GetComponent<MeshRenderer>();
+                        if(primaryMesh != null)
+                        {
+                            primaryMesh.enabled = false;
+                        }
+                        Transform cattails = __instance.gameObject.transform.FindChild("OBJ_CatTailShrubFlowers");
+                        
+                        if (cattails != null)
+                        {
+                           MeshRenderer cattailsMesh = cattails.GetComponent<MeshRenderer>();
+                           if (cattailsMesh != null)
+                           {
+                                cattailsMesh.enabled = false;
+                           }
+                        }
+                        if(__instance.gameObject.name.Contains("PreHarvest") && __instance.m_ActivateObjectPostHarvest != null)
+                        {
+                            __instance.m_ActivateObjectPostHarvest.active = true;
+                        }
+                        HUDMessage.AddMessage(HarvestTweakerUtils.FailMessage());
+                        return;
+                    }
+                }
             }
         }
 
@@ -116,9 +154,13 @@ namespace PlantHarvestTweaker
                 {
                     __instance.m_DefaultHoldTime = Settings.instance.MapleHarvest;
                 }
-                if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_Salt"))
+                if (GearItem.LoadGearItemPrefab("GEAR_Salt") != null)
                 {
-                    __instance.m_DefaultHoldTime = Settings.instance.SaltHarvest;
+                    if (__instance.m_Harvestable.m_GearPrefab == GearItem.LoadGearItemPrefab("Gear_Salt"))
+                    {
+                        __instance.m_DefaultHoldTime = Settings.instance.SaltHarvest;
+                    }
+                    
                 }
             }
         }

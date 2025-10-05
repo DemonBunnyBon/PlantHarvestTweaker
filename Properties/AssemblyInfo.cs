@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Marcy")]
 
 
-[assembly: AssemblyVersion("1.3.5")]
-[assembly: AssemblyFileVersion("1.3.5")]
-[assembly: MelonInfo(typeof(PlantHarvestTweakerMod), "PlantHarvestTweaker", "1.3.5", "Marcy", null)]
+[assembly: AssemblyVersion("1.5.0")]
+[assembly: AssemblyFileVersion("1.5.0")]
+[assembly: MelonInfo(typeof(PlantHarvestTweakerMod), "PlantHarvestTweaker", "1.5.0", "Marcy", null)]
 
 [assembly: MelonGame("Hinterland", "TheLongDark")]

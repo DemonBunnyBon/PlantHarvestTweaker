@@ -9,159 +9,172 @@ namespace PlantHarvestTweaker
         [Section("Rose Hips Settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of rosehips per bush.")]
+        [Description("Controls the minimum harvest amount of rosehips per bush. (Confirm and scene reload/transition required.) [Default: 8]")]
         [Slider(1,16)]
         public int RoseMin = 8;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of rosehips per bush.")]
+        [Description("Controls the maximum harvest amount of rosehips per bush. (Confirm and scene reload/transition required.) [Default: 8]")]
         [Slider(1,16)]
         public int RoseMax = 8;
 
         [Name("Rosehip harvest time")]
-        [Description("Time in seconds to harvest a rosehip bush.")]
-        [Slider(1, 10)]
-        public int RoseHarvest = 2;
+        [Description("Time in seconds to harvest a rosehip bush. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float RoseHarvest = 2;
 
         [Section("Reishi Settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of reishi per plant.")]
+        [Description("Controls the minimum harvest amount of reishi per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int ReishiMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of reishi per plant.")]
+        [Description("Controls the maximum harvest amount of reishi per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int ReishiMax = 1;
 
         [Name("Reishi harvest time")]
-        [Description("Time in seconds to harvest a reishi mushroom.")]
-        [Slider(1, 10)]
-        public int ReishiHarvest = 2;
+        [Description("Time in seconds to harvest a reishi mushroom. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float ReishiHarvest = 2;
 
         [Section("Lichen Settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of beard lichen per plant.")]
+        [Description("Controls the minimum harvest amount of beard lichen per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int LichenMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of beard lichen per plant.")]
+        [Description("Controls the maximum harvest amount of beard lichen per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int LichenMax = 1;
 
         [Name("Lichen harvest time")]
-        [Description("Time in seconds to harvest beard lichen.")]
-        [Slider(1, 10)]
-        public int LichenHarvest = 2;
+        [Description("Time in seconds to harvest beard lichen. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float LichenHarvest = 2;
 
         [Section("Cattail Settings")]
 
         [Name("Minimum harvest amount: Stalk")]
-        [Description("Controls the minimum harvest amount of cattail stalk per plant.")]
+        [Description("Controls the minimum harvest amount of cattail stalk per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int CatTailStalkMin = 1;
 
         [Name("Maximum harvest amount: Stalk")]
-        [Description("Controls the maximum harvest amount of cattail stalk per plant.")]
+        [Description("Controls the maximum harvest amount of cattail stalk per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int CatTailStalkMax = 1;
 
         [Name("Minimum harvest amount: Head")]
-        [Description("Controls the minimum harvest amount of cattail head per plant.")]
+        [Description("Controls the minimum harvest amount of cattail head per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int CatTailHeadMin = 1;
 
         [Name("Maximum harvest amount: Head")]
-        [Description("Controls the maximum harvest amount of cattail head per plant.")]
+        [Description("Controls the maximum harvest amount of cattail head per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 4)]
         public int CatTailHeadMax = 1;
 
         [Name("Cattail harvest time")]
-        [Description("Time in seconds to harvest a cattail plant.")]
-        [Slider(1, 10)]
-        public int CatTailHarvest = 2;
+        [Description("Time in seconds to harvest a cattail plant. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float CatTailHarvest = 2;
 
         [Section("Burdock settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of burdock per plant.")]
+        [Description("Controls the minimum harvest amount of burdock per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 5)]
         public int BurdockMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of burdock per plant.")]
+        [Description("Controls the maximum harvest amount of burdock per plant. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 5)]
         public int BurdockMax = 1;
 
         [Name("Burdock harvest time")]
-        [Description("Time in seconds to harvest a burdock plant.")]
-        [Slider(1, 20)]
-        public int BurdockHarvest = 10;
+        [Description("Time in seconds to harvest a burdock plant. (Confirm and scene reload/transition required.) [Default: 10]")]
+        [Slider(0, 20, 41, NumberFormat = "{0:0.##}s")]
+        public float BurdockHarvest = 10;
 
         [Section("Acorn settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of acorn batches per pile.")]
+        [Description("Controls the minimum harvest amount of acorn batches per pile. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 5)]
         public int AcornMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of acorn batches per pile.")]
+        [Description("Controls the maximum harvest amount of acorn batches per pile. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 5)]
         public int AcornMax = 1;
 
         [Name("Acorn harvest time")]
-        [Description("Time in seconds to dig up acorns.")]
-        [Slider(1, 10)]
-        public int AcornHarvest = 2;
+        [Description("Time in seconds to dig up acorns. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float AcornHarvest = 2;
 
         [Section("Birch Sapling Settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of a birch sapling.")]
+        [Description("Controls the minimum harvest amount of a birch sapling. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 3)]
         public int BirchMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of a birch sapling.")]
+        [Description("Controls the maximum harvest amount of a birch sapling. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 3)]
         public int BirchMax = 1;
 
         [Name("Birch sapling harvest time")]
-        [Description("Time in seconds to harvest a birch sapling.")]
-        [Slider(1, 10)]
-        public int BirchHarvest = 2;
+        [Description("Time in seconds to harvest a birch sapling. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float BirchHarvest = 2;
 
         [Section("Maple Sapling Settings")]
 
         [Name("Minimum harvest amount")]
-        [Description("Controls the minimum harvest amount of a maple sapling.")]
+        [Description("Controls the minimum harvest amount of a maple sapling. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 3)]
         public int MapleMin = 1;
 
         [Name("Maximum harvest amount")]
-        [Description("Controls the maximum harvest amount of a maple sapling.")]
+        [Description("Controls the maximum harvest amount of a maple sapling. (Confirm and scene reload/transition required.) [Default: 1]")]
         [Slider(1, 3)]
         public int MapleMax = 1;
 
         [Name("Maple sapling harvest time")]
-        [Description("Time in seconds to harvest a maple sapling.")]
-        [Slider(1, 10)]
-        public int MapleHarvest = 2;
+        [Description("Time in seconds to harvest a maple sapling. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float MapleHarvest = 2;
 
-        [Section("Misc. Settings")]
-        [Name("Tool degrade per harvest")]
-        [Description("The amount of HP a tool will lose when harvesting plants. (Eg. when harvesting a sapling with a hatchet)")]
-        [Slider(0, 10, 21)]
-        public float ToolDegrade = 0f;
+        [Section("Other")]
 
         [Name("Salt harvest time")]
-        [Description("Time in seconds to harvest salt from a pile.")]
-        [Slider(1,10)]
-        public int SaltHarvest = 2;
+        [Description("Time in seconds to harvest salt from a pile. (Confirm and scene reload/transition required.) [Default: 2]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}s")]
+        public float SaltHarvest = 2;
+
+        [Section("Difficulty")]
+
+        [Name("Harvest Fail Possibility")]
+        [Description("If enabled adds a small variable probability to fail a harvest and get nothing out of a plant. (Confirm and scene reload/transition required.) [Default: false]")]
+        public bool CanFail = false;
+
+        [Name("Base Fail Chance")]
+        [Description("Base chance to fail a harvest in %. (Confirm and scene reload/transition required.) [Default: 5]\nThis is adjusted by the following formula:\n(Base Chance + (0.75 * maximum harvest amount) + (0.25 * minimum harvest amount))%")]
+        [Slider(0, 50, NumberFormat = "{0:0.##}%")]
+        public int FailChance = 5;
+
+        [Name("Tool degrade per harvest")]
+        [Description("The amount of HP a tool will lose when harvesting plants. (Eg. when harvesting a sapling with a hatchet) (Confirm and scene reload/transition required.) [Default: 0]")]
+        [Slider(0, 10, 21, NumberFormat = "{0:0.##}%")]
+        public float ToolDegrade = 0f;
+
 
 
 
@@ -190,6 +203,8 @@ namespace PlantHarvestTweaker
         {
             if (instance.ResetSettings == true)
             {
+                Settings.instance.FailChance = 5;
+                Settings.instance.CanFail = false;
                 Settings.instance.RoseHarvest = 2;
                 Settings.instance.RoseMax = 8;
                 Settings.instance.RoseMin = 8;
