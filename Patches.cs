@@ -53,16 +53,221 @@ namespace PlantHarvestTweaker
                                 cattailsMesh.enabled = false;
                            }
                         }
-                        if(__instance.gameObject.name.Contains("PreHarvest") && __instance.m_ActivateObjectPostHarvest != null)
+                        if((__instance.gameObject.name.Contains("PreHarvest") || __instance.gameObject.name.ToLowerInvariant().Contains("sapling")) && __instance.m_ActivateObjectPostHarvest != null)
                         {
                             __instance.m_ActivateObjectPostHarvest.active = true;
                         }
                         HUDMessage.AddMessage(HarvestTweakerUtils.FailMessage());
+                        GameAudioManager.PlayGUIError();
                         return;
                     }
                 }
             }
         }
+
+        [HarmonyPatch(typeof(Harvestable), "AddAlternateTools")]
+        public class ToolPatch
+        {
+            public static void Postfix(ref Harvestable __instance)
+            {
+                GameObject[] NoToolsArray = [];
+                List<GameObject> fulllist = new List<GameObject>();
+                GameObject[] KnifeArray = [GearItem.LoadGearItemPrefab("GEAR_Knife").gameObject, GearItem.LoadGearItemPrefab("GEAR_KnifeImprovised").gameObject];
+                GameObject[] DLCKnifeArray = [];
+                if(GearItem.LoadGearItemPrefab("GEAR_CougarClawKnife") != null)
+                {
+                    DLCKnifeArray = [GearItem.LoadGearItemPrefab("GEAR_SurvivalKnife").gameObject, GearItem.LoadGearItemPrefab("GEAR_CougarClawKnife").gameObject];
+                    fulllist.AddRange(KnifeArray);
+                    fulllist.AddRange(DLCKnifeArray);
+                    KnifeArray = fulllist.ToArray();
+                }
+                GameObject[] HatchetArray = [GearItem.LoadGearItemPrefab("Gear_Hatchet").gameObject, GearItem.LoadGearItemPrefab("Gear_HatchetImprovised").gameObject];
+                GameObject[] ToolArray = [];
+                fulllist = new List<GameObject>();
+                fulllist.AddRange(HatchetArray);
+                fulllist.AddRange(KnifeArray);
+                ToolArray = fulllist.ToArray(); 
+                ToolArray.AddItem(GearItem.LoadGearItemPrefab("Gear_Prybar").gameObject);
+
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_Rosehip"))
+                {
+                    switch (Settings.instance.rosehiptool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_ReishiMushroom"))
+                {
+                    switch (Settings.instance.reishitool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_OldMansBeardHarvested"))
+                {
+                    switch (Settings.instance.lichentool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_CattailStalk") || __instance.m_SecondGearPrefab == GearItem.LoadGearItemPrefab("GEAR_CattailTinder"))
+                {
+                    switch (Settings.instance.cattailtool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_Burdock"))
+                {
+                    switch (Settings.instance.burdocktool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_Acorn"))
+                {
+                    switch (Settings.instance.acorntool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_BirchSapling"))
+                {
+                    switch (Settings.instance.birchtool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+                if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_MapleSapling"))
+                {
+                    switch (Settings.instance.mapletool)
+                    {
+                        case 0:
+                            __instance.m_RequiredToolList = NoToolsArray;
+                            break;
+                        case 1:
+                            __instance.m_RequiredToolList = KnifeArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.KnifeMessage();
+                            break;
+                        case 2:
+                            __instance.m_RequiredToolList = HatchetArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
+                            break;
+                        case 3:
+                            //ToolArray = HarvestTweakerUtils.AllTools();
+                            __instance.m_RequiredToolList = ToolArray;
+                            __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
+                            break;
+                    }
+                }
+            }
+        }
+
 
         [HarmonyPatch(typeof(Harvestable), "Awake")]
 

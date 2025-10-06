@@ -161,11 +161,11 @@ namespace PlantHarvestTweaker
 
         [Section("Difficulty")]
 
-        [Name("Harvest Fail Possibility")]
+        [Name("Harvest fail possibility")]
         [Description("If enabled adds a small variable probability to fail a harvest and get nothing out of a plant. (Confirm and scene reload/transition required.) [Default: false]")]
         public bool CanFail = false;
 
-        [Name("Base Fail Chance")]
+        [Name("Base fail chance")]
         [Description("Base chance to fail a harvest in %. (Confirm and scene reload/transition required.) [Default: 5]\nThis is adjusted by the following formula:\n(Base Chance + (0.75 * maximum harvest amount) + (0.25 * minimum harvest amount))%")]
         [Slider(0, 50, NumberFormat = "{0:0.##}%")]
         public int FailChance = 5;
@@ -174,6 +174,53 @@ namespace PlantHarvestTweaker
         [Description("The amount of HP a tool will lose when harvesting plants. (Eg. when harvesting a sapling with a hatchet) (Confirm and scene reload/transition required.) [Default: 0]")]
         [Slider(0, 10, 21, NumberFormat = "{0:0.##}%")]
         public float ToolDegrade = 0f;
+
+        [Name("Rosehip needed tool")]
+        [Description("Tool type needed to harvest rosehips, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int rosehiptool = 0;
+
+        [Name("Reishi needed tool")]
+        [Description("Tool type needed to harvest reishi, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int reishitool = 0;
+
+        [Name("Lichen needed tool")]
+        [Description("Tool type needed to harvest lichen, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int lichentool = 0;
+
+        [Name("Cattail needed tool")]
+        [Description("Tool type needed to harvest cattails, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int cattailtool = 0;
+
+        [Name("Burdock needed tool")]
+        [Description("Tool type needed to harvest burdock, if enabled. (Confirm and scene reload/transition required.) [Default: Any tool]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int burdocktool = 3;
+
+        [Name("Acorn needed tool")]
+        [Description("Tool type needed to harvest acorns, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int acorntool = 0;
+
+        [Name("Birch Sapling needed tool")]
+        [Description("Tool type needed to harvest birch saplings, if enabled. (Confirm and scene reload/transition required.) [Default: Hatchet]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int birchtool = 2;
+
+        [Name("Maple Sapling needed tool")]
+        [Description("Tool type needed to harvest maple saplings, if enabled. (Confirm and scene reload/transition required.) [Default: Hatchet]")]
+        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        public int mapletool = 2;
+
+
+        [Section("Joke Settings")]
+
+        [Name("Funny")]
+        [Description("Enables the funny messages.")]
+        public bool funny = false;
 
 
 
@@ -203,6 +250,15 @@ namespace PlantHarvestTweaker
         {
             if (instance.ResetSettings == true)
             {
+                Settings.instance.rosehiptool = 0;
+                Settings.instance.reishitool = 0;
+                Settings.instance.mapletool = 2;
+                Settings.instance.birchtool = 2;
+                Settings.instance.burdocktool = 3;
+                Settings.instance.lichentool = 0;
+                Settings.instance.cattailtool = 0;
+                Settings.instance.acorntool = 0;
+                Settings.instance.funny = false;
                 Settings.instance.FailChance = 5;
                 Settings.instance.CanFail = false;
                 Settings.instance.RoseHarvest = 2;
