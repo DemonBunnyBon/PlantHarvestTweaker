@@ -7,6 +7,7 @@ A mod for The Long Dark.
 Features:
 - Allows to change the harvested amount and harvest time of all plants in the game. 
 - Allows to randomize the item yield between minimum and maximum values for each plant.
+- Change what tools (if any) are required to harvest certain plants.
 - Gives option to make tools lose condition when harvesting plants.
 - Adds option for variable possiblity to fail a harvest.
 - Instant harvesting if time is set to 0.
