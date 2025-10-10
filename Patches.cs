@@ -74,6 +74,12 @@ namespace PlantHarvestTweaker
                 List<GameObject> fulllist = new List<GameObject>();
                 GameObject[] KnifeArray = [GearItem.LoadGearItemPrefab("GEAR_Knife").gameObject, GearItem.LoadGearItemPrefab("GEAR_KnifeImprovised").gameObject];
                 GameObject[] DLCKnifeArray = [];
+                GameObject[] CTKnifeArray = [];
+                if(GearItem.LoadGearItemPrefab("GEAR_JeremiahKnife") != null)
+                {
+                    CTKnifeArray = [GearItem.LoadGearItemPrefab("GEAR_JeremiahKnife").gameObject, GearItem.LoadGearItemPrefab("GEAR_KnifeScrapMetal").gameObject];
+                    fulllist.AddRange(CTKnifeArray);
+                }
                 if(GearItem.LoadGearItemPrefab("GEAR_CougarClawKnife") != null)
                 {
                     DLCKnifeArray = [GearItem.LoadGearItemPrefab("GEAR_SurvivalKnife").gameObject, GearItem.LoadGearItemPrefab("GEAR_CougarClawKnife").gameObject];
@@ -81,13 +87,14 @@ namespace PlantHarvestTweaker
                     fulllist.AddRange(DLCKnifeArray);
                     KnifeArray = fulllist.ToArray();
                 }
-                GameObject[] HatchetArray = [GearItem.LoadGearItemPrefab("Gear_Hatchet").gameObject, GearItem.LoadGearItemPrefab("Gear_HatchetImprovised").gameObject];
+                GameObject[] HatchetArray = [GearItem.LoadGearItemPrefab("GEAR_Hatchet").gameObject, GearItem.LoadGearItemPrefab("GEAR_HatchetImprovised").gameObject, GearItem.LoadGearItemPrefab("GEAR_Hacksaw").gameObject];
+                GameObject[] ExtraArray = [GearItem.LoadGearItemPrefab("GEAR_Prybar").gameObject];
                 GameObject[] ToolArray = [];
                 fulllist = new List<GameObject>();
                 fulllist.AddRange(HatchetArray);
                 fulllist.AddRange(KnifeArray);
+                fulllist.AddRange(ExtraArray);
                 ToolArray = fulllist.ToArray(); 
-                ToolArray.AddItem(GearItem.LoadGearItemPrefab("Gear_Prybar").gameObject);
 
                 if (__instance.m_GearPrefab == GearItem.LoadGearItemPrefab("GEAR_Rosehip"))
                 {

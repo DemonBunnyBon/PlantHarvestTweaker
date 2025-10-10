@@ -23,17 +23,17 @@ namespace PlantHarvestTweaker
         }
         public static string KnifeMessage()
         {
-            return "Knife needed to harvest.";
+            return "Requies a knife to harvest.";
         }
 
         public static string HatchetMessage()
         {
-            return "Hatchet needed to harvest.";
+            return "Requires a hatchet or hacksaw to harvest.";
         }
 
         public static string ToolMessage()
         {
-            return "A hatchet, knife, or prybar is required to harvest.";
+            return "Requires a tool to harvest.";
         }
     }
 }

@@ -177,42 +177,42 @@ namespace PlantHarvestTweaker
 
         [Name("Rosehip needed tool")]
         [Description("Tool type needed to harvest rosehips, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int rosehiptool = 0;
 
         [Name("Reishi needed tool")]
         [Description("Tool type needed to harvest reishi, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int reishitool = 0;
 
         [Name("Lichen needed tool")]
         [Description("Tool type needed to harvest lichen, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int lichentool = 0;
 
         [Name("Cattail needed tool")]
         [Description("Tool type needed to harvest cattails, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int cattailtool = 0;
 
         [Name("Burdock needed tool")]
         [Description("Tool type needed to harvest burdock, if enabled. (Confirm and scene reload/transition required.) [Default: Any tool]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int burdocktool = 3;
 
         [Name("Acorn needed tool")]
         [Description("Tool type needed to harvest acorns, if enabled. (Confirm and scene reload/transition required.) [Default: none]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int acorntool = 0;
 
         [Name("Birch Sapling needed tool")]
         [Description("Tool type needed to harvest birch saplings, if enabled. (Confirm and scene reload/transition required.) [Default: Hatchet]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int birchtool = 2;
 
         [Name("Maple Sapling needed tool")]
         [Description("Tool type needed to harvest maple saplings, if enabled. (Confirm and scene reload/transition required.) [Default: Hatchet]")]
-        [Choice("None", "Knife", "Hatchet", "Any tool")]
+        [Choice("None", "Knife", "Hatchet/Hacksaw", "Any tool")]
         public int mapletool = 2;
 
 
