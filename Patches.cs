@@ -6,6 +6,7 @@ using System.Collections;
 using Il2CppTLD.Gear;
 using Il2Cpp;
 using Il2CppTLD.IntBackedUnit;
+using Il2CppTLD.AI;
 
 
 namespace PlantHarvestTweaker
@@ -22,6 +23,7 @@ namespace PlantHarvestTweaker
                 if(tool != null)
                 {
                     tool.Degrade(Settings.instance.ToolDegrade);
+
                 }
                 
             }
@@ -53,9 +55,13 @@ namespace PlantHarvestTweaker
                                 cattailsMesh.enabled = false;
                            }
                         }
-                        if((__instance.gameObject.name.Contains("PreHarvest") || __instance.gameObject.name.ToLowerInvariant().Contains("sapling")) && __instance.m_ActivateObjectPostHarvest != null)
+                        if((__instance.gameObject.name.ToLowerInvariant().Contains("preharvest") || __instance.gameObject.name.ToLowerInvariant().Contains("sapling") || __instance.gameObject.name.ToLowerInvariant().Contains("burdock")) && __instance.m_ActivateObjectPostHarvest != null)
                         {
                             __instance.m_ActivateObjectPostHarvest.active = true;
+                        }
+                        if(__instance.gameObject.GetComponent<Collider>() != null)
+                        {
+                            __instance.gameObject.GetComponent<Collider>().enabled = false;
                         }
                         HUDMessage.AddMessage(HarvestTweakerUtils.FailMessage());
                         GameAudioManager.PlayGUIError();
@@ -85,8 +91,9 @@ namespace PlantHarvestTweaker
                     DLCKnifeArray = [GearItem.LoadGearItemPrefab("GEAR_SurvivalKnife").gameObject, GearItem.LoadGearItemPrefab("GEAR_CougarClawKnife").gameObject];
                     fulllist.AddRange(KnifeArray);
                     fulllist.AddRange(DLCKnifeArray);
-                    KnifeArray = fulllist.ToArray();
+                    
                 }
+                KnifeArray = fulllist.ToArray();
                 GameObject[] HatchetArray = [GearItem.LoadGearItemPrefab("GEAR_Hatchet").gameObject, GearItem.LoadGearItemPrefab("GEAR_HatchetImprovised").gameObject, GearItem.LoadGearItemPrefab("GEAR_Hacksaw").gameObject];
                 GameObject[] ExtraArray = [GearItem.LoadGearItemPrefab("GEAR_Prybar").gameObject];
                 GameObject[] ToolArray = [];
@@ -112,7 +119,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -134,7 +140,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -156,7 +161,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -178,7 +182,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -200,7 +203,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -222,7 +224,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -244,7 +245,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
@@ -266,7 +266,6 @@ namespace PlantHarvestTweaker
                             __instance.m_RequiredToolText = HarvestTweakerUtils.HatchetMessage();
                             break;
                         case 3:
-                            //ToolArray = HarvestTweakerUtils.AllTools();
                             __instance.m_RequiredToolList = ToolArray;
                             __instance.m_RequiredToolText = HarvestTweakerUtils.ToolMessage();
                             break;
